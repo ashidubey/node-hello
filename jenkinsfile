@@ -3,9 +3,9 @@ pipeline{
     stages{
         stage("build"){
             steps{
-                sh 'npm pack'
-                sh 'npm run start &'
-            }
+               echo "====++++Building++++===="
+                
+                }
         }
         stage("test"){
             steps{
