@@ -1,15 +1,33 @@
 pipeline{
-    agent any
+    agent none
     stages{
-        stage("build"){
+        stage("Building")
+        {
+            agent {
+            label "master"
+            }
             steps{
-               echo "====++++Building++++===="
-                
-                }
+                echo "Building"
+            }
         }
-        stage("test"){
-            steps{
-                echo "====++++Testing++++===="
+        stage("Testing parallelly"){
+            parallel{
+                stage("test on linux1"){
+                    agent{
+                        label "master"
+                    }
+                    steps{
+                        echo "testing on master"
+                    }
+                }
+                stage("test on slave 1"){
+                    agent{
+                        label "slave-1"
+                    }
+                    steps{
+                        echo "test on slave 1"
+                    }
+                }
             }
         }
     }
