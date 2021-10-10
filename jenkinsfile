@@ -7,7 +7,7 @@ pipeline{
             label "master"
             }
             steps{
-                echo "Building"
+                echo "building on test branch"
             }
         }
         stage("Testing parallelly"){
@@ -17,7 +17,8 @@ pipeline{
                         label "master"
                     }
                     steps{
-                        echo "testing on master"
+                        echo "testing on master agent"
+                        echo "testing on test branch"
                     }
                 }
                 stage("test on slave 1"){
@@ -25,7 +26,8 @@ pipeline{
                         label "slave-1"
                     }
                     steps{
-                        echo "test on slave 1"
+                        echo "test on slave 1 agent"
+                        echo "testing on test branch"
                     }
                 }
             }
