@@ -7,7 +7,7 @@ pipeline{
             label "master"
             }
             steps{
-                echo "Building"
+                echo "Building on main branch"
             }
         }
         stage("Testing parallelly"){
